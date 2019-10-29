@@ -1,0 +1,14 @@
+
+    
+---
+spring:
+  profiles: prod
+  
+  datasource:
+    url: jdbc:mysql://localhost/
+    username: 
+    password: 
+    
+logging:
+  level:
+    tacos: WARN

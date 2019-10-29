@@ -24,7 +24,7 @@ public class DevelopmentConfig {
 			@Override
 			public void run(String... args) throws Exception {
 				repo.save(new Course("IPT10000", "Situation & Policy I", Type.PFC, 0.50, 8, 0, 1));
-	        
+				
 	        
 				userRepo.save(new User("jacob", encoder.encode("password")));
 	      }

@@ -1,6 +1,5 @@
 package course.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +17,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class CourseList implements Serializable {
-	
-	private static final long serialVersionUID = 1L;	
+public class CourseList {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -28,14 +25,14 @@ public class CourseList implements Serializable {
 	
 	@ManyToOne
 	private User user;
-	  
+
 	@NotNull
 	@Size(min=5, message="Name must be at least 5 characters long")
 	private String name;
 
 	@ManyToMany(targetEntity=Course.class)
 	private List<Course> courses = new ArrayList<>();
-	  
+
 	public void addCourse(Course course) {
 	    this.courses.add(course);
 	}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>The Warehouse</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/custom-select.css}" />
+    <link rel="stylesheet" th:href="@{/css/custom-radio.css}" />
+  </head>
+
+  <body>
+    <header>
+      <h1 id="top">Course Integrator</h1>
+      <nav>
+        <ul>
+          <li><a th:href="@{/home}">Home</a></li>
+          <li><a href="#" class="current">Warehouse</a></li>
+          <li><a th:href="@{/about}">About</a></li>
+          <li><a th:href="@{/contact}">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <form th:method="POST" th:action="@{/warehouse}" id="form">
+      <div class="custom-select">
+        <select name="department" id="department">
+          <option th:each="dept : ${departments.keySet()}"
+          th:value="${departments.get(dept)}" th:text="${dept}">...</option>
+        </select>
+  	  </div>
+  	
+      <div class="custom-select">
+        <select name="major" id="major">
+          <option value="AE">Aerospace Engineering</option>
+          <option value="CST">Computer Science</option>
+          <option value="SE">Big Data and Software Engineering</option>
+        </select>
+      </div>
+      
+      <div>
+        <input type="search" name="courseName" placeholder="Enter Course Name" />
+      </div>
+      
+      <div>
+        <label class="container">By Major
+          <input type="radio" name="searchBy" value="major"/>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">By Name
+          <input type="radio" name="searchBy" value="name" />
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">Both
+          <input type="radio" name="searchBy" value="both" />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      
+      <input type="image" th:src="@{images/go.jpg}" class="button"/>
+    </form>
+
+  <div class="resp-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="sorting" data-sort="string"><div class="sortwrap">ID</div></th> 
+          <th class="sorting" data-sort="string"><div class="sortwrap">Title</div></th>
+          <th class="sorting" data-sort="string"><div class="sortwrap">Type</div></th>
+          <th class="sorting" data-sort="double" data-blanks="1"><div class="sortwrap">Credit</div></th> 
+          <th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Theory</div></th>
+          <th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Exper.</div></th>
+          <th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Sem.</div></th>
+        </tr>
+      </thead>
+      
+      <tbody th:remove="all-but-first">
+        <tr th:each="course : ${courses}">
+          <td class="cell-name"><a class="ent-name" th:href="@{/course/details(id=${course.id})}" th:title="'View details for ' + ${course.id}" th:text="${course.id}">0</a></td>
+          <td class="cell-name" th:text="${course.title}">0</td>
+          <td class="cell-name-type" th:text="${course.type}">0</td>
+          <td class="cell-num" th:text="${course.credit}">0</td>
+          <td class="cell-num" th:text="(${course.theory} == 0)? '-' : ${course.theory}">0</td>
+          <td class="cell-num" th:text="(${course.experiment} == 0)? '-' : ${course.experiment}">0</td>
+          <td class="cell-num" th:text="(${course.semester} == 0)? '-' : ${course.semester}">0</td>
+        </tr>
+        <tr>
+          <td class="cell-name"><a class="ent-name" href="" title="View details for CST31117">CST31117</a></td>
+          <td class="cell-name">Compilers</td>
+          <td class="cell-name-type">MC</td>
+          <td class="cell-num">3.50</td>
+          <td class="cell-num">48</td>
+          <td class="cell-num">8</td>
+          <td class="cell-num">0</td>
+        </tr>
+        <tr>
+          <td class="cell-name"><a class="ent-name" href="" title="View details for SE21021">SE21021</a></td>
+          <td class="cell-name">Operating System</td>
+          <td class="cell-name-type">MF</td>
+          <td class="cell-num">3.00</td>
+          <td class="cell-num">40</td>
+          <td class="cell-num">16</td>
+          <td class="cell-num">4</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td class="cell-name">-</td>
+          <td class="cell-name">-</td>
+          <td class="cell-name-type">-</td>
+          <td class="cell-sum" th:text="${credits}">0</td>
+          <td class="cell-sum" th:text="${theories}">0</td>
+          <td class="cell-sum" th:text="${experiments}">0</td>
+          <td class="cell-num">-</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <a href="#top" class="navi-top">^^</a>
+  
+  <footer class="main-footer">
+    <div class="grid-container">
+    All content &amp; design &copy; Course Integrator, 2019-2020.
+    </div>
+  </footer>
+
+  <script th:src="@{/js/jquery-3.4.1.js}"></script>
+  <script th:src="@{/js/custom-select.js}"></script>
+  <script th:src="@{/js/warehouse.js}"></script>
+  </body>
+</html>

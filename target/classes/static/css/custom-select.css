@@ -8,7 +8,7 @@
 }
 
 .custom-select select {
-  display: none; /*hide original SELECT element: */
+  display: none; /* hide original SELECT element: */
 }
 
 .select-selected {

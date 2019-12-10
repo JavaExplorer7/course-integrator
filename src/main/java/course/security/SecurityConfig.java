@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	        // Allow pages to be loaded in frames from the 
 	        // same origin; needed for H2-Console
-	        .and()  
+	        .and()
 	        	.headers()
 	        	.frameOptions()
 	            .sameOrigin()

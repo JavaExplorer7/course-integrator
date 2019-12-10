@@ -4,26 +4,91 @@
  */
 
 $(function() {
-	// animate the searching results
-	$('tr th').hide().fadeIn(2000);
-	
-	$('tbody tr').hide().each(function(index) {
-		$(this).delay(100 * index).slideDown();
-	});
-	
-	// check out the form before submitting
+	// inspect the form before performing the search
 	$('#form').on('submit', function(e) {
-		var searchBy = $('input[name="searchBy"]:radio').filter(":checked");
-		var name 		 = $('input[name="courseName"]');
-		var button 	 = $('input[type="image"]');
-			
-		if (searchBy.length < 1) {
-			e.preventDefault();
-			button.after('<br /><span>Check one of them, would you?</span>');
-		} else if (searchBy.val() == 'name' && name.val().length < 1) {
-				e.preventDefault();
-				button.after('<br /><span>Are you forgetting something?</span>');
+		e.preventDefault();
+		var $searchBy   = $('input[name="searchBy"]:radio').filter(":checked");
+		var $name 		  = $('input[name="courseName"]');
+		var $searchHint = $('#searchHint');
+		
+		// clear the previous hint
+		$searchHint.text('');
+		if ($searchBy.length < 1) {
+			$searchHint.text('Search by ??');
+		} else if ($searchBy.val() == 'name' && $name.val().length < 1) {
+			$searchHint.text('Name is empty !');
+		} else {
+			processSearch();
 		}
 	});
 
 });
+
+/* Animate the searching results */
+function animateSearchResults() {
+	$('tr th').hide().fadeIn(2000);
+	$('tbody tr, tfoot tr').hide().each(function(index) {
+		$(this).delay(100 * index).slideDown();
+	});
+}
+
+/* Do a Ajax get search */
+function processSearch() {
+	$.ajax({
+		type:			"GET",
+		url: 			"warehouse/search",
+		data:			$('#form').serialize(),
+		timeout: 	2000,
+	
+		beforeSend: function() {
+			
+		},
+		complete: function() {
+			
+		},
+		fail: function() {
+			alert('fail to fetch the course list');
+		},
+		success: function(data) {
+			var newList = '';
+			var newSummary = '';
+			var summary = {
+				credits: 0,
+				theories: 0,
+				experiments: 0
+			};
+			
+			$.each(data, function(key, val) {
+    	  newList += '<tr>' 
+    	  + '<td class="cell-name"><a class="ent-name" href="course/details?id=' + val.id + '" title="View details for ' + val.id + '">' + val.id + '</a></td>'
+      	+ '<td class="cell-name">' 			+ val.title + '</td>'
+      	+ '<td class="cell-name-type">' + val.type 	+ '</td>'
+      	+ '<td class="cell-num">' 			+ val.credit+ '</td>'
+      	+ '<td class="cell-num">' + ((val.theory == 0)? 		'-' : val.theory)			+ '</td>'
+      	+ '<td class="cell-num">' + ((val.experiment == 0)? '-' :	val.experiment) + '</td>'
+      	+ '<td class="cell-num">' + ((val.semester == 0)? 	'-'	:	val.semester)		+ '</td>'
+        + '</tr>';
+    	  
+    	  summary.credits  += val.credit;
+    	  summary.theories += val.theory;
+    	  summary.experiments += val.experiment;
+			});
+			
+			newSummary += '<tr>'
+    	+ '<td class="cell-name">-</td>'
+    	+ '<td class="cell-name">-</td>'
+    	+ '<td class="cell-name-type">-</td>'
+    	+ '<td class="cell-sum">' + summary.credits 		+ '</td>'
+    	+ '<td class="cell-sum">' + summary.theories 		+ '</td>'
+    	+ '<td class="cell-sum">' + summary.experiments + '</td>'
+    	+ '<td class="cell-num">-</td>'
+      + '</tr>';
+			
+			$('tbody tr').remove();
+			$('tfoot tr').remove();
+			$('tbody').html(newList);
+			$('tfoot').html(newSummary);
+			animateSearchResults();
+		}
+	});
+}

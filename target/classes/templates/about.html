@@ -8,7 +8,7 @@
   
   <body>
     <header>
-      <h1 id="top">Course Integrator</h1>
+      <h1>Course Integrator</h1>
       <nav>
         <ul>
           <li><a th:href="@{/home}">Home</a></li>
@@ -19,6 +19,31 @@
       </nav>
     </header>
     
+    <section id="content">
+      <div id="container">
+        <ul class="course-type">
+          <li><em>PO</em>  - Public Optional</li>
+          <li><em>PFC</em> - Public Fundamental Compulsory</li>
+          <li><em>PFO</em> - Public Fundamental Optional</li>
+          
+          <li><em>MF</em>  - Major Fundamental</li>
+          <li><em>MC</em>  - Major Compulsory</li>
+          <li><em>MO</em>  - Major Optional</li>
+          
+          <li><em>C</em>   - Commonsense</li>
+          <li><em>U</em>   - Unrestricted</li>
+          <li><em>P</em>   - Practice</li>
+        </ul>
+      </div>
+    </section>
     
+    <footer class="main-footer">
+      <div class="grid-container">
+      All content &amp; design &copy; Course Integrator, 2019-2020.
+      </div>
+    </footer>
+
+    <script th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/js/share.js}"></script>
   </body>
 </html>

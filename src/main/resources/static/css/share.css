@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@import url("styles.css");
+
+ul.options {
+  list-style:inside disc;}
+ul.options li {
+  margin:10px;
+  font-size:1.5rem;}
+ul.options a:link, ul.options a:visited {
+  color:black;}
+ul.options a:hover, ul.options a:active, ul.options a:focus {
+  color:red;}
+
+ul.course-type {
+  list-style:inside square;}
+ul.course-type li {
+  margin:10px;}

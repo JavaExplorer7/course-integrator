@@ -3,7 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>About</title>
-    <link rel="stylesheet" th:href="@{/css/about.css}" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/share.css}" />
   </head>
   
   <body>
@@ -15,26 +16,28 @@
           <li><a th:href="@{/warehouse}">Warehouse</a></li>
           <li><a href="#" class="current">About</a></li>
           <li><a th:href="@{/contact}">Contact</a></li>
+          <li><a th:href="@{/}">Welcome</a></li>
         </ul>
       </nav>
     </header>
     
     <section id="content">
       <div id="container">
+        <h2>Types of Courses</h2>
         <ul class="course-type">
-          <li><em>PO</em>  - Public Optional</li>
+          <li><em>PO</em>&ensp; - Public Optional</li>
           <li><em>PFC</em> - Public Fundamental Compulsory</li>
           <li><em>PFO</em> - Public Fundamental Optional</li>
           
-          <li><em>MF</em>  - Major Fundamental</li>
-          <li><em>MC</em>  - Major Compulsory</li>
-          <li><em>MO</em>  - Major Optional</li>
+          <li><em>MF</em>&ensp; - Major Fundamental</li>
+          <li><em>MC</em>&ensp; - Major Compulsory</li>
+          <li><em>MO</em>&ensp; - Major Optional</li>
           
-          <li><em>C</em>   - Commonsense</li>
-          <li><em>U</em>   - Unrestricted</li>
-          <li><em>P</em>   - Practice</li>
+          <li><em>C</em>&emsp;&ensp;- Commonsense</li>
+          <li><em>U</em>&emsp;&ensp;- Unrestricted</li>
+          <li><em>P</em>&emsp;&ensp;- Practice</li>
         </ul>
-      </div>
+      </div> 
     </section>
     
     <footer class="main-footer">
@@ -42,7 +45,7 @@
       All content &amp; design &copy; Course Integrator, 2019-2020.
       </div>
     </footer>
-
+    
     <script th:src="@{/js/jquery-3.4.1.js}"></script>
     <script th:src="@{/js/share.js}"></script>
   </body>

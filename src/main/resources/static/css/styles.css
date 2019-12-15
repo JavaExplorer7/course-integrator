@@ -20,33 +20,37 @@ body {
   background-size:16px 16px;
   font-size:1rem;}
 
-header, section, footer, aside, nav, article, figure, figcaption {display: block;}
+header, section, footer, aside, nav, article, figure, figcaption {display:block;}
 
 header {
-  height: 160px;}
-
-h1 {
+  height:160px;}
+h1, h2 {
   margin:1rem 0 2rem 1rem;
   padding:0;
   font-size:2.5rem;
-  text-transform: uppercase;
+  text-transform:uppercase;
   text-decoration:overline;}
+h2 {
+  font-size:2rem;
+  text-transform:none;
+  text-decoration:none;}
+  
 nav {
-  clear: both;
-  color: #ffffff;
-  background-color: #aeaca8;
-  height: 30px;}
+  clear:both;
+  color:#ffffff;
+  background-color:#aeaca8;
+  height:30px;}
 nav ul {
-  margin: 0px;
-  padding: 5px 0px 5px 30px;}
+  margin:0px;
+  padding:5px 0px 5px 30px;}
 nav li {
-  display: inline;
-  margin-right: 40px;}
-nav li a {color: #ffffff;}
-nav li a:hover, nav li a.current {color: #000000;}
+  display:inline;
+  margin-right:40px;}
+nav li a {color:#ffffff;}
+nav li a:hover, nav li a.current {color:#000000;}
 
 a:link, a:visited {
-  color: #087EA2;
+  color:#087EA2;
   text-decoration:none;
   transition:color .2s, background-color .2s;}
 a:hover,a:active,a:focus {
@@ -54,11 +58,11 @@ a:hover,a:active,a:focus {
   text-decoration:underline;
   outline:0;}
 a.navi-top {
-  display: block;
-  margin: 0 auto;
-  color: black;
-  font-size: 2rem;
-  text-align: center;}
+  display:block;
+  margin:0 auto;
+  color:black;
+  font-size:2rem;
+  text-align:center;}
 
 b,strong,th {
   font-weight:bold;}
@@ -68,6 +72,11 @@ hr {
   background:#dbdbdb;
   border:0;
   clear:both;}
+span {
+  color:red;
+  font-size:1.25rem;
+  font-weight:bold;
+}
 table {
   margin:2rem auto 2rem auto;
   border-collapse:collapse;
@@ -76,38 +85,33 @@ th,td {
   padding:4px 10px;}
 
 form {
-  width: 600px;
-  margin: 0 auto;
+  width:600px;
+  margin:0 auto;
 }
 form div {
-  margin: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  font-size: 1.5rem;
+  margin:10px;
+  padding-bottom:10px;
+  font-weight:bold;
+  font-size:1.5rem;
 }
 
 input[type=search] {
-  height: 50px;
-  width: 250px;
-  text-align: center;
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 1.5rem;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+  height:50px;
+  width:250px;
+  text-align:center;
+  font-family:Arial;
+  font-weight:bold;
+  font-size:1.5rem;
+  -webkit-transition:width 0.4s ease-in-out;
+  transition:width 0.4s ease-in-out;
 }
 /* When the input field gets focus, change its width to 100% */
 input[type=search]:focus {
-  width: 500px;
+  width:500px;
 }
 .button {
-  width: 75px;
-  height: 75px;
-}
-span {
-  color: red;
-  font-size: 1.25rem;
-  font-weight: bold;
+  width:75px;
+  height:75px;
 }
 
 .resp-scroll {
@@ -127,7 +131,7 @@ span {
   padding:8px 10px;
   background-color:#ffffff;
   text-align:left;
-  font-style: italic;
+  font-style:italic;
   white-space:nowrap;}
 .data-table th:nth-child(n+2) {
   border-left-width:1px;}
@@ -151,7 +155,7 @@ span {
   position:relative;}
 .cell-name {
   min-width:150px;
-  max-width: 250px;
+  max-width:250px;
   line-height:1.2rem;}
 .cell-name-type {
   min-width:50px;
@@ -161,7 +165,7 @@ span {
   text-align:right;}
 .cell-sum {
   white-space:nowrap;
-  color: red;
+  color:red;
   text-align:right;}
 
 .sorting>.sortwrap::before {
@@ -172,14 +176,14 @@ span {
   content:"";
   width:8px;
   height:16px;
-  background: url("../images/sort-arrows.png") no-repeat 0 0;}
+  background:url("../images/sort-arrows.png") no-repeat 0 0;}
 .sorting-asc>.sortwrap::before {
   background-position:0 -16px;}
 .sorting-desc>.sortwrap::before {
   background-position:0 -32px;}
 
 .main-footer {
-  margin: 1rem auto 0 auto;
+  margin:1rem auto 0 auto;
   padding:1rem;
   background-color:#202020;
   font-size:.875rem;

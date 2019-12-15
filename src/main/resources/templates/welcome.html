@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>About</title>
+    <title>Welcome</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/share.css}" />
   </head>
@@ -14,30 +14,22 @@
         <ul>
           <li><a th:href="@{/home}">Home</a></li>
           <li><a th:href="@{/warehouse}">Warehouse</a></li>
-          <li><a href="#" class="current">About</a></li>
+          <li><a th:href="@{/about}">About</a></li>
           <li><a th:href="@{/contact}">Contact</a></li>
-          <li><a th:href="@{/}">Welcome</a></li>
+          <li><a href="#" class="current">Welcome</a></li>
         </ul>
       </nav>
     </header>
-    
+
     <section id="content">
       <div id="container">
-        <h2>Types of Courses</h2>
-        <ul class="course-type">
-          <li><em>PO</em>&ensp; - Public Optional</li>
-          <li><em>PFC</em> - Public Fundamental Compulsory</li>
-          <li><em>PFO</em> - Public Fundamental Optional</li>
-          
-          <li><em>MF</em>&ensp; - Major Fundamental</li>
-          <li><em>MC</em>&ensp; - Major Compulsory</li>
-          <li><em>MO</em>&ensp; - Major Optional</li>
-          
-          <li><em>C</em>&emsp;&ensp;- Commonsense</li>
-          <li><em>U</em>&emsp;&ensp;- Unrestricted</li>
-          <li><em>P</em>&emsp;&ensp;- Practice</li>
+        <h2>I would like to ...</h2>
+        <ul class="options">
+          <li><a th:href="@{/warehouse}"><em>Find a course and jump to its site</em></a></li>
+          <li><a th:href="@{/home}"><em>Go to my place</em></a></li>
+          <li><a th:href="@{/register}"><em>Create a new place</em></a></li>
         </ul>
-      </div> 
+      </div>
     </section>
     
     <footer class="main-footer">

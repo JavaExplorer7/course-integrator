@@ -3,15 +3,14 @@
       xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Register</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/registration.css}" />
   </head>
   
   <body>
     <h1>Registration</h1>
-    <img th:src="@{/images/CourseIntegrator.png}"/>
     
     <form method="POST" th:action="@{/register}" id="registerForm">
-    
         <label for="username">Username: </label>
         <input type="text" name="username"/><br/>
 

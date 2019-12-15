@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>The Warehouse</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
     <link rel="stylesheet" th:href="@{/css/custom-select.css}" />
     <link rel="stylesheet" th:href="@{/css/custom-radio.css}" />
@@ -17,13 +18,14 @@
           <li><a href="#" class="current">Warehouse</a></li>
           <li><a th:href="@{/about}">About</a></li>
           <li><a th:href="@{/contact}">Contact</a></li>
+          <li><a th:href="@{/}">Welcome</a></li>
         </ul>
       </nav>
     </header>
     
     <section id="content">
       <div id="container">
-        <form id="form" th:method="POST" th:action="@{/warehouse}">
+        <form id="form">
           <div class="custom-select">
             <select name="department" id="department">
               <option th:each="dept : ${departments.keySet()}"
@@ -114,7 +116,6 @@
     </footer>
 
     <script th:src="@{/js/jquery-3.4.1.js}"></script>
-    <script th:src="@{/js/share.js}"></script>
     <script th:src="@{/js/custom-select.js}"></script>
     <script th:src="@{/js/warehouse.js}"></script>
   </body>

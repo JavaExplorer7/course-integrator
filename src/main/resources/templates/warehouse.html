@@ -5,6 +5,7 @@
     <title>The Warehouse</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link rel="stylesheet" th:href="@{/css/table.css}" />
     <link rel="stylesheet" th:href="@{/css/custom-select.css}" />
     <link rel="stylesheet" th:href="@{/css/custom-radio.css}" />
   </head>
@@ -30,15 +31,15 @@
             <select name="department" id="department">
               <option th:each="dept : ${departments.keySet()}"
               th:value="${departments.get(dept)}" th:text="${dept}"
-              th:selected="${deptStat.first}? 'selected'">...</option>
+              th:selected="${dept.contains('Info')}? 'selected'">...</option>
             </select>
-  	      </div>
-  	
+          </div>
+    
           <div class="custom-select">
             <select name="major" id="major">
               <option th:each="major : ${majors.keySet()}"
               th:value="${majors.get(major)}" th:text="${major}"
-              th:selected="${majorStat.last}? 'selected'">...</option>
+              th:selected="${major.contains('Computer')}? 'selected'">...</option>
             </select>
           </div>
       
@@ -61,51 +62,49 @@
             </label>
           </div>
       
-        <input type="image" th:src="@{images/go.jpg}" class="button"/>
-        <span id="searchHint"></span>
-      </form>
+          <input type="image" th:src="@{images/go.jpg}" class="button"/>
+        </form>
 
-        <div class="resp-scroll">
-      	  <table class="data-table">
-        	<thead>
-          	  <tr>
-            	<th class="sorting" data-sort="string"><div class="sortwrap">ID</div></th> 
-            	<th class="sorting" data-sort="string"><div class="sortwrap">Title</div></th>
-            	<th class="sorting" data-sort="string"><div class="sortwrap">Type</div></th>
-            	<th class="sorting" data-sort="double" data-blanks="1"><div class="sortwrap">Credit</div></th> 
-            	<th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Theory</div></th>
-            	<th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Exper.</div></th>
-            	<th class="sorting" data-sort="int" data-blanks="1"><div class="sortwrap">Sem.</div></th>
-              </tr>
-            </thead>
-      
-        	<tbody th:remove="all-but-first">
-          	  <tr th:each="course : ${courses}">
-            	<td class="cell-name"><a class="ent-name" th:href="@{/course/details(id=${course.id})}" th:title="'View details for ' + ${course.id}" th:text="${course.id}">0</a></td>
-            	<td class="cell-name" th:text="${course.title}">0</td>
-            	<td class="cell-name-type" th:text="${course.type}">0</td>
-            	<td class="cell-num" th:text="${course.credit}">0</td>
-            	<td class="cell-num" th:text="(${course.theory} == 0)? '-' : ${course.theory}">0</td>
-            	<td class="cell-num" th:text="(${course.experiment} == 0)? '-' : ${course.experiment}">0</td>
-            	<td class="cell-num" th:text="(${course.semester} == 0)? '-' : ${course.semester}">0</td>
-              </tr>
-            </tbody>
+        <span id="hint" class="hint"></span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="sorting" data-sort="name"><div class="sortwrap">ID</div></th> 
+              <th class="sorting" data-sort="name"><div class="sortwrap">Title</div></th>
+              <th class="sorting" data-sort="name"><div class="sortwrap">Type</div></th>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Credit</div></th> 
+              <th class="sorting" data-sort="number"><div class="sortwrap">Theory</div></th>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Exper.</div></th>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Sem.</div></th>
+            </tr>
+          </thead>
 
-        	<tfoot>
-          	  <tr>
-            	<td class="cell-name">-</td>
-            	<td class="cell-name">-</td>
-            	<td class="cell-name-type">-</td>
-            	<td class="cell-sum">0</td>
-            	<td class="cell-sum">0</td>
-            	<td class="cell-sum">0</td>
-            	<td class="cell-num">-</td>
-              </tr>
-            </tfoot>
-          </table>
+          <tbody th:remove="all-but-first">
+            <tr th:each="course : ${courses}">
+              <td class="cell-name"><a th:href="@{/course/details(id=${course.id})}" th:title="'View details for ' + ${course.id}" th:text="${course.id}">0</a></td>
+              <td class="cell-name" th:text="${course.title}">0</td>
+              <td class="cell-name-type" th:text="${course.type}">0</td>
+              <td class="cell-num" th:text="${course.credit}">0</td>
+              <td class="cell-num" th:text="(${course.theory} == 0)? '-' : ${course.theory}">0</td>
+              <td class="cell-num" th:text="(${course.experiment} == 0)? '-' : ${course.experiment}">0</td>
+              <td class="cell-num" th:text="(${course.semester} == 0)? '-' : ${course.semester}">0</td>
+            </tr>
+          </tbody>
 
-          <a href="#top" class="navi-top">^^</a>
-        </div> <!-- #resp-scroll -->
+          <tfoot>
+            <tr>
+              <td class="cell-name">-</td>
+              <td class="cell-name">-</td>
+              <td class="cell-name-type">-</td>
+              <td class="cell-sum">0</td>
+              <td class="cell-sum">0</td>
+              <td class="cell-sum">0</td>
+              <td class="cell-num">-</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <a href="#top" class="navi-top">^^</a>
       </div> <!-- #container -->
     </section>
     
@@ -118,5 +117,6 @@
     <script th:src="@{/js/jquery-3.4.1.js}"></script>
     <script th:src="@{/js/custom-select.js}"></script>
     <script th:src="@{/js/warehouse.js}"></script>
+    <script th:src="@{/js/sort-table.js}"></script>
   </body>
 </html>

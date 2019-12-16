@@ -22,9 +22,9 @@ public class WarehouseController {
 	  
 	  @GetMapping
 	  public String initList(Model model) {
-		  model.addAttribute("courses", courseRepo.findByIdContaining("EE"));
+		  model.addAttribute("courses", courseRepo.findByIdContaining("CST"));
 		  model.addAttribute("departments", MajorConversion.DEPARTMENTS);
-		  model.addAttribute("majors", MajorConversion.getSchool("E"));
+		  model.addAttribute("majors", MajorConversion.getSchool("IS"));
 		  
 	    return "warehouse";
 	  }

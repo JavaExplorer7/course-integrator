@@ -85,7 +85,7 @@ function closeAllSelect(elmnt) {
 
 /* refresh the options of major box whenever 
  * the department option changes */
-var departValue = 'E';
+var departValue = 'IS';
 function changeSchool() {
 	if (departValue !== $('#department').val()) {
 		departValue = $('#department').val();

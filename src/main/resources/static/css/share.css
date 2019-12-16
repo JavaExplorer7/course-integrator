@@ -2,6 +2,7 @@
 
 @import url("styles.css");
 
+/* welcome page */
 ul.options {
   list-style:inside disc;}
 ul.options li {
@@ -12,6 +13,7 @@ ul.options a:link, ul.options a:visited {
 ul.options a:hover, ul.options a:active, ul.options a:focus {
   color:red;}
 
+/* about page */
 ul.course-type {
   list-style:inside square;}
 ul.course-type li {

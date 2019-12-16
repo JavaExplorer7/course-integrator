@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+table {
+  margin:2rem auto 2rem auto;
+  border-collapse:collapse;
+  border-spacing:0;}
+th, td {
+  padding:4px 10px;}
+
+.data-table th, .data-table td {
+  vertical-align:middle;
+  border-width:1px 0;
+  border-style:solid;
+  border-color:#dbdbdb;}
+.data-table th {
+  padding:8px 10px;
+  background-color:#ffffff;
+  text-align:left;
+  font-style:italic;
+  white-space:nowrap;}
+  
+.data-table tr {
+  background-color:rgba(216,226,229,0.5);}
+.data-table tr:hover {
+  background-color:#fff9e0;}
+.data-table tr.hidden {
+  display:none;}
+  
+.cell-name {
+  min-width:150px;
+  max-width:250px;
+  line-height:1.2rem;}
+.cell-name-type {
+  min-width:50px;
+  line-height:1.2rem;}
+.cell-num {
+  white-space:nowrap;
+  text-align:right;}
+.cell-sum {
+  color:red;
+  white-space:nowrap;
+  text-align:right;}
+
+.data-table .sorting {
+  padding-right:28px;
+  cursor:pointer;
+  text-decoration:none;}
+.data-table .sorting-asc, .data-table .sorting-desc {
+  background-color:#ecdfec;}
+
+.sortwrap {
+  position:relative;}
+.sorting>.sortwrap::before {
+  display:block;
+  position:absolute;
+  top:3px;
+  right:-18px;
+  content:"";
+  width:8px;
+  height:16px;
+  background:url("../images/sort-arrows.png") no-repeat 0 0;}
+.sorting-asc>.sortwrap::before {
+  background-position:0 -16px;}
+.sorting-desc>.sortwrap::before {
+  background-position:0 -32px;}
+  

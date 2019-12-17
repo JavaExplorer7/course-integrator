@@ -18,7 +18,14 @@ public class ResourceController {
 	public Map<String, String> 
 		schoolsByDepartmentId(@PathVariable("id") String id) {
 
-		return MajorConversion.getSchool(id);
+		return MajorConversion.getSchools(id);
+	}
+	
+	@GetMapping("/majors/{id}")
+	public Map<String, String> 
+		majorsBySchoolId(@PathVariable("id") String id) {
+
+		return MajorConversion.getMajors(id);
 	}
 	
 }

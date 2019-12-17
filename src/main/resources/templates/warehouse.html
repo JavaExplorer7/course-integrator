@@ -36,10 +36,10 @@
           </div>
     
           <div class="custom-select">
-            <select name="major" id="major">
-              <option th:each="major : ${majors.keySet()}"
-              th:value="${majors.get(major)}" th:text="${major}"
-              th:selected="${major.contains('Computer')}? 'selected'">...</option>
+            <select name="school" id="school">
+              <option th:each="school : ${schools.keySet()}"
+              th:value="${schools.get(school)}" th:text="${school}"
+              th:selected="${school.contains('Computer')}? 'selected'">...</option>
             </select>
           </div>
       
@@ -48,8 +48,8 @@
           </div>
       
           <div>
-            <label class="container">By Major
-            <input type="radio" name="searchBy" value="major" checked="checked"/>
+            <label class="container">By School
+            <input type="radio" name="searchBy" value="school" checked="checked"/>
             <span class="checkmark"></span>
             </label>
             <label class="container">By Name

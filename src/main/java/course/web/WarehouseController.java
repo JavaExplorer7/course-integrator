@@ -22,10 +22,10 @@ public class WarehouseController {
 	  
 	  @GetMapping
 	  public String initList(Model model) {
-		  model.addAttribute("courses", courseRepo.findByIdContaining("CST"));
 		  model.addAttribute("departments", MajorConversion.DEPARTMENTS);
-		  model.addAttribute("majors", MajorConversion.getSchool("IS"));
-		  
+		  model.addAttribute("schools", MajorConversion.getSchools("IS"));
+		  model.addAttribute("courses", courseRepo.findByIdContaining("CST"));
+
 	    return "warehouse";
 	  }
 

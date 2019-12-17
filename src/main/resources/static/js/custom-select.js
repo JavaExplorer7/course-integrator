@@ -45,7 +45,7 @@ function customSelection(isFirstLoad) {
 	          }
 	        }
 	        h.click();
-	        // refresh the options of major box whenever
+	        // refresh the options of school box whenever
 	        // the department option changes
 	        changeSchool();
 	    });
@@ -83,7 +83,7 @@ function closeAllSelect(elmnt) {
   }
 }
 
-/* refresh the options of major box whenever 
+/* refresh the options of school box whenever 
  * the department option changes */
 var departValue = 'IS';
 function changeSchool() {
@@ -97,13 +97,13 @@ function changeSchool() {
 				options += '<option value="' + val + '">' + key + "</option>";
 			});
 			
-			$('#major option').remove();
-			$('#major').nextAll().remove();
-			$('#major').html(options);
+			$('#school option').remove();
+			$('#school').nextAll().remove();
+			$('#school').html(options);
 			customSelection(false);
 		})
 		.fail( function() {
-			alert('fail to load new major options');
+			alert('fail to load new school options');
 		})
 		.always( function() {
 			

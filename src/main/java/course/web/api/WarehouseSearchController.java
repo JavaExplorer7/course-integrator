@@ -26,16 +26,16 @@ public class WarehouseSearchController {
   
   @GetMapping("/search")
   public Iterable<Course> processSearch(
-  		@ModelAttribute("major") String majorID,
+  		@ModelAttribute("school") String schoolID,
   		@ModelAttribute("courseName") String courseName,
   		@ModelAttribute("searchBy") String searchBy) {
 
-  	if (searchBy.equalsIgnoreCase("major"))
-  		return courseRepo.findByIdContaining(majorID);
+  	if (searchBy.equalsIgnoreCase("school"))
+  		return courseRepo.findByIdContaining(schoolID);
   	else if (searchBy.equalsIgnoreCase("name"))
   		return courseRepo.findByTitleContainingIgnoreCase(courseName);
   	else
-  		return courseRepo.findByIdContainingAndTitleContainingIgnoreCase(majorID, courseName);
+  		return courseRepo.findByIdContainingAndTitleContainingIgnoreCase(schoolID, courseName);
   }
 
 }

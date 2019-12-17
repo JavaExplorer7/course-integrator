@@ -8,14 +8,14 @@ import java.util.Scanner;
 public class RawToSQL {
 
 	private static final String FILE_DIR = 
-			"/home/jacob/Documents/Course-Integrator-Project/data/";
+			"/home/jacob/Documents/college/Course-Integrator-Project/data/";
 	
-	private static final String TASK_IN_DIR = FILE_DIR + "raw-EN.txt";
-	private static final String TASK_OUT_DIR = FILE_DIR + "data.sql";
+	private static final String TASK_IN 	= FILE_DIR + "raw-EN.txt";
+	private static final String TASK_OUT 	= FILE_DIR + "data.sql";
 	
 	private static StringBuffer temp = new StringBuffer();
 	
-	private static void addToBuffer(String[] token) throws IOException {
+	private static void addToBuffer(String[] tokens) throws IOException {
 		
 		temp.append("insert into Course (id, title, type, credit, theory, experiment, semester)\n");
 		
@@ -24,14 +24,18 @@ public class RawToSQL {
 		int i, j;
 		i = j = 0;
 		
-		for ( ; i < token.length; ++i) {
-			if (token[i].length() < 1)
+		for (; i < tokens.length; ++i) {
+			if (tokens[i].length() < 1)
 				continue;
 			
+			// escape any single quote
+			if (tokens[i].contains("'"))
+				tokens[i] = tokens[i].replace("'", "\\'");
+			
 			if (j++ < 6)
-				temp.append("'" + token[i].trim() + "', ");
+				temp.append("'" + tokens[i].trim() + "', ");
 			else
-				temp.append("'" + token[i].trim() + "'");
+				temp.append("'" + tokens[i].trim() + "'");
 		}
 		
 		temp.append(");\n");
@@ -39,7 +43,7 @@ public class RawToSQL {
 	
 	
 	private static void read() throws IOException {
-		File file = new File(TASK_IN_DIR);
+		File file = new File(TASK_IN);
 		Scanner input = new Scanner(file);
 			
 		while (input.hasNext()) {
@@ -48,10 +52,10 @@ public class RawToSQL {
 			if (line.length() < 2)
 				continue;
 			
-			String[] token = line.split("\t");
+			String[] tokens = line.split("\t");
 			
 			//System.out.print(++lineno + "\t");
-			addToBuffer(token);
+			addToBuffer(tokens);
 			//System.out.println();
 		}
 		
@@ -59,7 +63,7 @@ public class RawToSQL {
 	}
 	
 	private static void write() throws IOException {
-		File file = new File(TASK_OUT_DIR);
+		File file = new File(TASK_OUT);
 		try (
 				PrintWriter output = new PrintWriter(file);
 		) {

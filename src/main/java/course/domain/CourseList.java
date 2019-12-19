@@ -18,23 +18,23 @@ import lombok.Data;
 @Data
 @Entity
 public class CourseList {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	@ManyToOne
-	private User user;
+  
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private Long id;
+  
+  @ManyToOne
+  private User user;
 
-	@NotNull
-	@Size(min=5, message="Name must be at least 5 characters long")
-	private String name;
+  @NotNull
+  @Size(min=5, message="Name must be at least 5 characters long")
+  private String name;
 
-	@ManyToMany(targetEntity=Course.class)
-	private List<Course> courses = new ArrayList<>();
+  @ManyToMany(targetEntity=Course.class)
+  private List<Course> courses = new ArrayList<>();
 
-	public void addCourse(Course course) {
-	    this.courses.add(course);
-	}
-	
+  public void addCourse(Course course) {
+      this.courses.add(course);
+  }
+  
 }

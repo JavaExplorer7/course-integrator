@@ -6,8 +6,8 @@ import course.domain.CreditRequirement;
 import course.domain.User;
 
 public interface CreditRequirementRepository 
-	extends CrudRepository<CreditRequirement, Long> {
+  extends CrudRepository<CreditRequirement, Long> {
 
-	  CreditRequirement findByUser(User user);
-	
+    CreditRequirement findByUser(User user);
+  
 }

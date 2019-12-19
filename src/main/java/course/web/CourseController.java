@@ -11,12 +11,12 @@ import course.domain.Course;
 @Controller
 @RequestMapping("/course")
 public class CourseController {
-	
+  
   @GetMapping("/details")
   public String courseSite(Model model) {
 
-  	//System.out.println(model.getAttribute("id"));
-  	
+    //System.out.println(model.getAttribute("id"));
+    
     return "home";
   }
 

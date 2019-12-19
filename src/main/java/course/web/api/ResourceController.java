@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path="/data",
-								produces="application/json")
+                produces="application/json")
 @CrossOrigin(origins="*")
 public class ResourceController {
-	
-	@GetMapping("/schools/{id}")
-	public Map<String, String> 
-		schoolsByDepartmentId(@PathVariable("id") String id) {
+  
+  @GetMapping("/schools/{id}")
+  public Map<String, String> 
+    schoolsByDepartmentId(@PathVariable("id") String id) {
 
-		return MajorConversion.getSchools(id);
-	}
-	
-	@GetMapping("/majors/{id}")
-	public Map<String, String> 
-		majorsBySchoolId(@PathVariable("id") String id) {
+    return MajorConversion.getSchools(id);
+  }
+  
+  @GetMapping("/majors/{id}")
+  public Map<String, String> 
+    majorsBySchoolId(@PathVariable("id") String id) {
 
-		return MajorConversion.getMajors(id);
-	}
-	
+    return MajorConversion.getMajors(id);
+  }
+  
 }

@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/home")
 public class HomeController {
 
-	  @GetMapping
-	  public String completeList(Model model) {
+    @GetMapping
+    public String completeList(Model model) {
 
-	    return "home";
-	  }
-	
+      return "home";
+    }
+  
 }

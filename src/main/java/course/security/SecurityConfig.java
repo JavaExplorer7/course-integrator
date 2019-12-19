@@ -16,53 +16,52 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 @EnableWebSecurity
 @SuppressWarnings("deprecation")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-	        	.antMatchers("/home", "/orders")
-	        	.access("hasRole('ROLE_USER')")
-	        	.antMatchers("/**").access("permitAll")
-	        
-	        .and()
-	        	.formLogin()
-	        	.loginPage("/login")
-	          
-	        .and()
-	        	.logout()
-	        	.logoutSuccessUrl("/")
-	          
-	        .and()
-	        	.csrf()
-	        	.ignoringAntMatchers("/h2-console/**")
+  
+  @Autowired
+  private UserDetailsService userDetailsService;
+  
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+      .authorizeRequests()
+            .antMatchers("/home")
+            .access("hasRole('ROLE_USER')")
+            .antMatchers("/**").access("permitAll")
+          
+          .and()
+            .formLogin()
+            .loginPage("/login")
+            
+          .and()
+            .logout()
+            .logoutSuccessUrl("/")
+            
+          .and()
+            .csrf()
+            .ignoringAntMatchers("/h2-console/**")
 
-	        // Allow pages to be loaded in frames from the 
-	        // same origin; needed for H2-Console
-	        .and()
-	        	.headers()
-	        	.frameOptions()
-	            .sameOrigin()
-	        ;
-	  }
-	
-	@Bean
-	public PasswordEncoder encoder() {
-		return new StandardPasswordEncoder("trick7or3treat");
-	}
-	
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth)
-			throws Exception {
+          // Allow pages to be loaded in frames from the
+          // same origin; needed for H2-Console
+          .and()
+            .headers()
+            .frameOptions()
+              .sameOrigin()
+          ;
+    }
+  
+  @Bean
+  public PasswordEncoder encoder() {
+    return new StandardPasswordEncoder("trick7or3treat");
+  }
+  
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception {
 
-		auth
-			.userDetailsService(userDetailsService)
-			.passwordEncoder(encoder());
-		
-	}
-	
+    auth
+      .userDetailsService(userDetailsService)
+      .passwordEncoder(encoder());
+    
+  }
+  
 }

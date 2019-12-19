@@ -13,10 +13,10 @@ import course.domain.Course;
 
 @RestController
 @RequestMapping(path="/warehouse",
-								produces="application/json")
+                produces="application/json")
 @CrossOrigin(origins="*")
 public class WarehouseSearchController {
-	
+  
   private CourseRepository courseRepo;
 
   @Autowired
@@ -26,16 +26,16 @@ public class WarehouseSearchController {
   
   @GetMapping("/search")
   public Iterable<Course> processSearch(
-  		@ModelAttribute("school") String schoolID,
-  		@ModelAttribute("courseName") String courseName,
-  		@ModelAttribute("searchBy") String searchBy) {
+      @ModelAttribute("school") String schoolID,
+      @ModelAttribute("courseName") String courseName,
+      @ModelAttribute("searchBy") String searchBy) {
 
-  	if (searchBy.equalsIgnoreCase("school"))
-  		return courseRepo.findByIdContaining(schoolID);
-  	else if (searchBy.equalsIgnoreCase("name"))
-  		return courseRepo.findByTitleContainingIgnoreCase(courseName);
-  	else
-  		return courseRepo.findByIdContainingAndTitleContainingIgnoreCase(schoolID, courseName);
+    if (searchBy.equalsIgnoreCase("school"))
+      return courseRepo.findByIdContaining(schoolID);
+    else if (searchBy.equalsIgnoreCase("name"))
+      return courseRepo.findByTitleContainingIgnoreCase(courseName);
+    else
+      return courseRepo.findByIdContainingAndTitleContainingIgnoreCase(schoolID, courseName);
   }
 
 }

@@ -14,17 +14,17 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 public class Course {
 
-	@Id
-	private final String id;
-	private final String title;
-	private final Type type;
-	private final double credit;
-	private final int theory;
-	private final int experiment;
-	private final int semester;
+  @Id
+  private final String id;
+  private final String title;
+  private final Type type;
+  private final double credit;
+  private final int theory;
+  private final int experiment;
+  private final int semester;
 
-	public static enum Type {
-		PO, PFC, PFO, MF, MC, MO, C, U, P
-	}
+  public static enum Type {
+    PO, PFC, PFO, MF, MC, MO, C, U, P
+  }
 
 }

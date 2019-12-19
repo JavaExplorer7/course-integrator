@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 
 public class MajorConversion {
   
+  /* Departments > Schools > Majors */
+
   public static final Map<String, String> DEPARTMENTS = 
       Stream.of(new String[][] {
         {"Arts and Humanities", "AU"},
@@ -21,7 +23,7 @@ public class MajorConversion {
       Stream.of(new String[][] {
           {"Foreign Languages and Cultures", "FL"},
           {"Arts", "AT"},
-          {"Physical Education", "PE"},
+          {"Physical Education", "PSS"},
           {"Meishi Film Academy", "FA"},
           {"Liberal Arts College", "LA"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
@@ -44,9 +46,9 @@ public class MajorConversion {
           {"Industrial Design", "ID"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
   
-  private static final Map<String, String> SCHOOL_PE = 
+  private static final Map<String, String> SCHOOL_PSS = 
       Stream.of(new String[][] {
-          {"Sports Education", "PESS"}})
+          {"Sports Education", "PSS"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
   
   private static final Map<String, String> SCHOOL_FA = 
@@ -108,24 +110,24 @@ public class MajorConversion {
   
   private static final Map<String, String> DEPT_S = 
       Stream.of(new String[][] {
-          {"Mathematics and Statistics", "MATH"},
-          {"Physics", "PHY"},
+          {"Mathematics and Statistics", "MTH"},
+          {"Physics", "PYS"},
           {"Chemistry and Chemical Engineering", "CCE"},
           {"Bioengineering College", "BIO"},
           {"Life Science ", "LS"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
-  private static final Map<String, String> SCHOOL_MATH = 
+  private static final Map<String, String> SCHOOL_MTH = 
       Stream.of(new String[][] {
-          {"Mathematics and Applied Mathematics", "MAM"},
+          {"Mathematics and Applied Mathematics", "MTH"},
           {"Information and Computing Science", "ICS"},
           {"Statistics", "STAT"},
           {"Financial Mathematics", "FM"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
-  private static final Map<String, String> SCHOOL_PHY = 
+  private static final Map<String, String> SCHOOL_PYS = 
       Stream.of(new String[][] {
-          {"Physics", "PHYS"},
+          {"Physics", "PYS"},
           {"Applied Physics", "APHY"},
           {"Electronic Information Science and Technology", "EICT"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
@@ -246,14 +248,14 @@ public class MajorConversion {
   
   private static final Map<String, String> DEPT_IS = 
       Stream.of(new String[][] {
-          {"Computer Science", "CST"},
+          {"Computer Science", "CS"},
           {"Big Data and Software Engineering", "SE"},
           {"OptoElectronic Engineering", "OE"},
           {"Communication Engineering", "CE"},
           {"Automation", "AUTO"}})
       .collect(Collectors.toMap(data -> data[0], data -> data[1]));
   
-  private static final Map<String, String> SCHOOL_CST = 
+  private static final Map<String, String> SCHOOL_CS = 
       Stream.of(new String[][] {
           {"Computer Science and Technology", "CST"},
           {"Information Security", "IS"},
@@ -315,7 +317,7 @@ public class MajorConversion {
       case "FA"   :  return SCHOOL_FA;
       case "FL"   :  return SCHOOL_FL;
       case "LA"   :  return SCHOOL_LA;
-      case "PE"   :  return SCHOOL_PE;
+      case "PE"   :  return SCHOOL_PSS;
       case "AT"   :  return SCHOOL_AT;
       case "LAW"  :  return SCHOOL_LAW;
       case "JC"   :  return SCHOOL_JC;
@@ -324,8 +326,8 @@ public class MajorConversion {
       case "LS"   :  return SCHOOL_LS;
       case "BIO"  :  return SCHOOL_BIO;
       case "CCE"  :  return SCHOOL_CCE;
-      case "MATH" :  return SCHOOL_MATH;
-      case "PHY"  :  return SCHOOL_PHY;
+      case "MATH" :  return SCHOOL_MTH;
+      case "PHY"  :  return SCHOOL_PYS;
       case "RES"  :  return SCHOOL_RES;
       case "MSE"  :  return SCHOOL_MSE;
       case "AE"   :  return SCHOOL_AE;
@@ -339,7 +341,7 @@ public class MajorConversion {
       case "UCEE" :  return SCHOOL_UCEE;
       case "AUTO" :  return SCHOOL_AUTO;
       case "OE"   :  return SCHOOL_OE;
-      case "CST"  :  return SCHOOL_CST;
+      case "CST"  :  return SCHOOL_CS;
       case "CE"   :  return SCHOOL_CE;
       case "SE"   :  return SCHOOL_SE;
 

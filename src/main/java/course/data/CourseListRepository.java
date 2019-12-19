@@ -8,8 +8,8 @@ import course.domain.CourseList;
 import course.domain.User;
 
 public interface CourseListRepository 
-	extends CrudRepository<CourseList, Long> {
-	
-	List<CourseList> findByUser(User user);
-	
+  extends CrudRepository<CourseList, Long> {
+  
+  List<CourseList> findByUser(User user);
+  
 }

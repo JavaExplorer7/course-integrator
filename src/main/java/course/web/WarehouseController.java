@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import course.data.CourseRepository;
-import course.web.api.MajorConversion;
+import course.web.api.SchoolConversion;
 
 @Controller
 @RequestMapping("/warehouse")
@@ -22,9 +22,9 @@ public class WarehouseController {
 	  
 	  @GetMapping
 	  public String initList(Model model) {
-		  model.addAttribute("departments", MajorConversion.DEPARTMENTS);
-		  model.addAttribute("schools", MajorConversion.getSchools("IS"));
-		  model.addAttribute("courses", courseRepo.findByIdContaining("CS"));
+		  model.addAttribute("departments", SchoolConversion.DEPARTMENTS);
+		  model.addAttribute("schools", SchoolConversion.getSchools("IS"));
+		  model.addAttribute("courses", courseRepo.findByIdContainsIgnoresCase("CS"));
 
 	    return "warehouse";
 	  }

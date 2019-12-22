@@ -17,7 +17,7 @@ public class CourseController {
 
     //System.out.println(model.getAttribute("id"));
     
-    return "home";
+    return "course";
   }
 
 }

@@ -3,7 +3,7 @@ package course.misc;
 import java.util.Arrays;
 import java.util.List;
 
-import course.web.api.MajorConversion;
+import course.web.api.SchoolConversion;
 
 public class CasePrint {
 
@@ -12,7 +12,7 @@ public class CasePrint {
     List<String> depts = Arrays.asList("AU", "SS", "S", "E", "BE", "IS");
     
     for (String dept: depts)
-      for (String schoolID : MajorConversion.getSchools(dept).values())
+      for (String schoolID : SchoolConversion.getSchools(dept).values())
         System.out.println("\tcase \"" + schoolID + "\""
             + "\t:\treturn SCHOOL_" + schoolID + ";");
   }

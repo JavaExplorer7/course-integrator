@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MajorConversion {
+public class SchoolConversion {
   
   /* Departments > Schools > Majors */
 
@@ -341,7 +341,7 @@ public class MajorConversion {
       case "UCEE" :  return SCHOOL_UCEE;
       case "AUTO" :  return SCHOOL_AUTO;
       case "OE"   :  return SCHOOL_OE;
-      case "CST"  :  return SCHOOL_CS;
+      case "CS"   :  return SCHOOL_CS;
       case "CE"   :  return SCHOOL_CE;
       case "SE"   :  return SCHOOL_SE;
 

@@ -2,26 +2,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Register</title>
+    <title>Sign Up</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" th:href="@{/css/registration.css}" />
+    <link rel="stylesheet" th:href="@{/css/authenticate.css}" />
   </head>
   
   <body>
-    <h1>Registration</h1>
-    
     <form method="POST" th:action="@{/register}" id="registerForm">
-        <label for="username">Username: </label>
-        <input type="text" name="username"/><br/>
+      <div>
+        <input type="text" name="username" id="username" 
+        placeholder="Your Account" required />
+        <span id="usernameHint" class="verify-fail">??</span>
+      </div>
 
-        <label for="password">Password: </label>
-        <input type="password" name="password"/><br/>
+      <div>
+        <input type="password" name="password" id="password" 
+        placeholder="Your Secret" required />
+        <span id="passwordHint" class="verify-fail">??</span>
+      </div>
+      
+      <div>
+        <input type="password" name="confirm" id="confirm" 
+        placeholder="Confirm Your Secret" required />
+        <span id="confirmHint" class="verify-fail">??</span>
+      </div>
 
-        <label for="confirm">Confirm Password: </label>
-        <input type="password" name="confirm"/><br/>
-    
-        <input type="submit" value="Register"/>
+      <div>
+        <input type="submit" value="Sign Up"/>
+      </div>
     </form>
     
+    <script th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/js/authenticate.js}"></script>
   </body>
 </html>

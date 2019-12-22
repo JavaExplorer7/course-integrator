@@ -1,7 +1,6 @@
 package course.domain;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -26,10 +25,10 @@ public class CreditRequirement {
   @OneToOne
   private User user;
   
-  private HashMap<Type, Double> requirement;
+  private Map<Type, Double> requirement;
   
   @ManyToMany(targetEntity=Course.class)
-  private Set<Course> courses = new HashSet<>();
+  private Set<Course> courses;
   
   public void addRequirement(Type type, double credit) {
     this.requirement.put(type, new Double(credit));

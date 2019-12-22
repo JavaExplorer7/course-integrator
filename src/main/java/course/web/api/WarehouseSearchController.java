@@ -31,11 +31,11 @@ public class WarehouseSearchController {
       @ModelAttribute("searchBy") String searchBy) {
 
     if (searchBy.equalsIgnoreCase("school"))
-      return courseRepo.findByIdContaining(schoolID);
+      return courseRepo.findByIdContainsIgnoresCase(schoolID);
     else if (searchBy.equalsIgnoreCase("name"))
-      return courseRepo.findByTitleContainingIgnoreCase(courseName);
+      return courseRepo.findByTitleContainsIgnoresCase(courseName);
     else
-      return courseRepo.findByIdContainingAndTitleContainingIgnoreCase(schoolID, courseName);
+      return courseRepo.findByIdContainsAndTitleContainsAllIgnoresCase(schoolID, courseName);
   }
 
 }

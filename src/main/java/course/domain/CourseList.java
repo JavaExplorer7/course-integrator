@@ -1,7 +1,6 @@
 package course.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +30,7 @@ public class CourseList {
   private String name;
 
   @ManyToMany(targetEntity=Course.class)
-  private List<Course> courses = new ArrayList<>();
+  private Set<Course> courses;
 
   public void addCourse(Course course) {
       this.courses.add(course);

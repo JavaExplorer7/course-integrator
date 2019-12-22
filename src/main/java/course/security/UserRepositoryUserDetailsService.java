@@ -26,8 +26,9 @@ public class UserRepositoryUserDetailsService
       throws UsernameNotFoundException {
     
     User user = userRepo.findByUsername(username);
-    if (user != null)
-        return user;
+    if (user != null) {
+      return user;
+    }
     
     throw new UsernameNotFoundException(
         "User '" + username + "' not found");

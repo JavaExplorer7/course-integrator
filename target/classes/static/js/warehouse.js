@@ -65,9 +65,9 @@ function processSearch() {
       $.each(data, function(key, val) {
         newList += '<tr>' 
         + '<td class="cell-name"><a class="ent-name" href="course/details?id=' + val.id + '" title="View details for ' + val.id + '">' + val.id + '</a></td>'
-        + '<td class="cell-name">'       + val.title + '</td>'
-        + '<td class="cell-name-type">' + val.type   + '</td>'
-        + '<td class="cell-num">'       + val.credit+ '</td>'
+        + '<td class="cell-name">'       + val.title  + '</td>'
+        + '<td class="cell-name-type">'  + val.type   + '</td>'
+        + '<td class="cell-num">'        + val.credit + '</td>'
         + '<td class="cell-num">' + ((val.theory == 0)?     '-' : val.theory)      + '</td>'
         + '<td class="cell-num">' + ((val.experiment == 0)? '-' :  val.experiment) + '</td>'
         + '<td class="cell-num">' + ((val.semester == 0)?   '-'  :  val.semester)    + '</td>'
@@ -94,7 +94,7 @@ function processSearch() {
       $('tbody').html(newList);
       $('tfoot').html(newSummary);
       $('#hint').text((summary.size == 0)? 
-        'Not Match' : (summary.size + ' courses found'));
+        'Not Found' : (summary.size + ' courses found'));
       animateSearchResults();
     }
   });

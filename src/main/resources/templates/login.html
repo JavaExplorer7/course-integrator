@@ -4,24 +4,29 @@
   <head>
     <title>Login</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/authenticate.css}" />
   </head>
   
   <body>
-    <h1>Login</h1>
-    
-    <div th:if="${error}">
-      Unable to login. Check your username and password.
-    </div>
-    
     <form method="POST" th:action="@{/login}" id="loginForm">
-      <label for="username">Username: </label>
-      <input type="text" name="username"/><br/>
+      <div>
+        <label for="username" class="required">Username: </label>
+        <input type="text" name="username" id="username" 
+        placeholder="Your Account" autofocus required />
+      </div>
+
+      <div>
+        <label for="password" class="required">Password: </label>
+        <input type="password" name="password" id="password" 
+        placeholder="Your Secret" required />
+      </div>
       
-      <label for="password">Password: </label>
-      <input type="password" name="password"/><br/>
-      
-      <input type="submit" value="Login"/>
+      <div>
+        <input type="submit" value="Login"/>
+      </div>
     </form>
+    
+    <script th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/js/authenticate.js}"></script>
   </body>
 </html>

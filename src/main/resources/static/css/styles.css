@@ -54,7 +54,7 @@ a:link, a:visited {
   text-decoration:none;
   transition:color .2s, background-color .2s;}
 a:hover, a:active, a:focus {
-  color:#a42121;
+  color:red;
   text-decoration:underline;
   outline:0;}
 a.navi-top {

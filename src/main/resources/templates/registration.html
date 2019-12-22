@@ -8,29 +8,30 @@
   </head>
   
   <body>
-    <form method="POST" th:action="@{/register}" id="registerForm">
-      <div>
-        <input type="text" name="username" id="username" 
-        placeholder="Your Account" required />
-        <span id="usernameHint" class="verify-fail">??</span>
-      </div>
+    <section class="login">
+      <div class="title">Course Integrator</div>
+      <form method="POST" th:action="@{/register}" id="registerForm">
+        <div>
+          <input type="text" id="username" name="username" 
+            title="5 characters at least" placeholder="Username" required />
+          <span id="usernameHint" class="verify-fail"></span>
+        </div>
 
-      <div>
-        <input type="password" name="password" id="password" 
-        placeholder="Your Secret" required />
-        <span id="passwordHint" class="verify-fail">??</span>
-      </div>
+        <div>
+          <input type="password" id="password" name="password"
+            title="8 characters at least" placeholder="Password" required />
+          <span id="passwordHint" class="verify-fail"></span>
+        </div>
       
-      <div>
-        <input type="password" name="confirm" id="confirm" 
-        placeholder="Confirm Your Secret" required />
-        <span id="confirmHint" class="verify-fail">??</span>
-      </div>
+        <div>
+          <input type="password" id="confirm" name="confirm" 
+            title="8 characters at least" placeholder="Confirm Password" required />
+          <span id="confirmHint" class="verify-fail"></span>
+        </div>
 
-      <div>
         <input type="submit" value="Sign Up"/>
-      </div>
-    </form>
+      </form>
+    </section>
     
     <script th:src="@{/js/jquery-3.4.1.js}"></script>
     <script th:src="@{/js/authenticate.js}"></script>

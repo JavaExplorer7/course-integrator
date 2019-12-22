@@ -1,5 +1,6 @@
 package course.domain;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -16,7 +17,9 @@ import lombok.Data;
 
 @Data
 @Entity
-public class CourseList {
+public class CourseList implements Serializable {
+  
+  private static final long serialVersionUID = 1L;
   
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)

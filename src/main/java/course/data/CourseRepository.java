@@ -7,10 +7,10 @@ import course.domain.Course;
 public interface CourseRepository 
   extends CrudRepository<Course, String> {
 
-  Iterable<Course> findByIdContainsIgnoresCase(String schoolID);
+  Iterable<Course> findByIdContainingIgnoreCase(String schoolID);
   
-  Iterable<Course> findByTitleContainsIgnoresCase(String title);
+  Iterable<Course> findByTitleContainingIgnoreCase(String title);
 
-  Iterable<Course> findByIdContainsAndTitleContainsAllIgnoresCase(String schoolID, String title);
+  Iterable<Course> findByIdContainingAndTitleContainingAllIgnoreCase(String schoolID, String title);
   
 }

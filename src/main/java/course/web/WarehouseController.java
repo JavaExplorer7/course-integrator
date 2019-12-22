@@ -24,7 +24,7 @@ public class WarehouseController {
 	  public String initList(Model model) {
 		  model.addAttribute("departments", SchoolConversion.DEPARTMENTS);
 		  model.addAttribute("schools", SchoolConversion.getSchools("IS"));
-		  model.addAttribute("courses", courseRepo.findByIdContainsIgnoresCase("CS"));
+		  model.addAttribute("courses", courseRepo.findByIdContainingIgnoreCase("CS"));
 
 	    return "warehouse";
 	  }

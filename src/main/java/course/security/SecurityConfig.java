@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
-
 @Configuration
 @EnableWebSecurity
 @SuppressWarnings("deprecation")
@@ -25,12 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     http
       .authorizeRequests()
             .antMatchers("/home")
-            .access("hasRole('ROLE_USER')")
+              .access("hasRole('ROLE_USER')")
             .antMatchers("/**").access("permitAll")
           
           .and()
             .formLogin()
-            .loginPage("/login")
+              .loginPage("/login")
+              .defaultSuccessUrl("/home", true)
             
           .and()
             .logout()

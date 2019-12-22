@@ -1,3 +1,21 @@
 @charset "UTF-8";
 
 @import url("styles.css");
+
+  
+form .button {
+  width:40%;
+  height:50px;
+  border:none;
+  border-radius:6px;
+  border-top:#4eb2a8 1px solid;
+  border-bottom:#161616 1px solid;
+  padding-top:14px 0 14px 0;
+  color:#FFF;
+  background:#349e92;
+  text-align:center;
+  text-decoration:none;
+  text-shadow:0 -1px #1d7464, 0 1px #7bb8b3;
+  font-size:20px;
+  font-weight:bold;
+  font-family:Arial;}

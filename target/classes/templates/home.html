@@ -23,7 +23,11 @@
     
     <section id="content">
       <div id="container">
-        <p>There is the content of Home tab</p>
+        <p>Here is the content of Home tab</p>
+        
+        <form method="POST" th:action="@{/logout}">
+          <input type="submit" class="button" value="Sign Out"/>
+        </form>
       </div>
     </section>
     
@@ -34,5 +38,6 @@
     </footer>
 
     <script th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/js/home.js}"></script>
   </body>
 </html>

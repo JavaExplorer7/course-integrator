@@ -94,7 +94,7 @@ function processSearch() {
       $('tbody').html(newList);
       $('tfoot').html(newSummary);
       $('#hint').text((summary.size == 0)? 
-        'Not Found' : (summary.size + ' courses found'));
+        'Not Found' : (summary.size + ' course(s) found'));
       animateSearchResults();
     }
   });

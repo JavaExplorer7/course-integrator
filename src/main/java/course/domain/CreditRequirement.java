@@ -1,6 +1,6 @@
 package course.domain;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -25,7 +25,7 @@ public class CreditRequirement {
   @OneToOne
   private User user;
   
-  private Map<Type, Double> requirement;
+  private HashMap<Type, Double> requirement;
   
   @ManyToMany(targetEntity=Course.class)
   private Set<Course> courses;
@@ -34,7 +34,7 @@ public class CreditRequirement {
     this.requirement.put(type, new Double(credit));
   }
   
-  public void addFinished(Course finished) {
+  public void addFinishedCourse(Course finished) {
     this.courses.add(finished);
   }
   

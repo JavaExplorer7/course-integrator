@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import course.data.CourseRepository;
 import course.domain.Course;
 
-
 @RestController
 @RequestMapping(path="/warehouse",
                 produces="application/json")
@@ -31,11 +30,11 @@ public class WarehouseSearchController {
       @ModelAttribute("searchBy") String searchBy) {
 
     if (searchBy.equalsIgnoreCase("school"))
-      return courseRepo.findByIdContainsIgnoresCase(schoolID);
+      return courseRepo.findByIdContainingIgnoreCase(schoolID);
     else if (searchBy.equalsIgnoreCase("name"))
-      return courseRepo.findByTitleContainsIgnoresCase(courseName);
+      return courseRepo.findByTitleContainingIgnoreCase(courseName);
     else
-      return courseRepo.findByIdContainsAndTitleContainsAllIgnoresCase(schoolID, courseName);
+      return courseRepo.findByIdContainingAndTitleContainingAllIgnoreCase(schoolID, courseName);
   }
 
 }

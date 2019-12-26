@@ -23,7 +23,7 @@
     
     <section id="content">
       <div id="container">
-        <p>Here is the content of Home tab</p>
+        <p>Hello, <span th:text="${user.username}"></span></p>
         
         <form method="POST" th:action="@{/logout}">
           <input type="submit" class="button" value="Sign Out"/>

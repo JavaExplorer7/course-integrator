@@ -6,11 +6,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import course.data.CourseDetailRepository;
 import course.data.CourseRepository;
+import course.data.StaffRepository;
 import course.data.UserRepository;
 import course.domain.Course;
 import course.domain.User;
 import course.domain.Course.Type;
+import course.domain.Staff;
+import course.domain.Staff.Position;
 
 @Profile("!prod")
 @Configuration
@@ -18,12 +22,17 @@ public class DevelopmentConfig {
 
   @Bean
   public CommandLineRunner dataLoader(CourseRepository repo,
-      UserRepository userRepo, PasswordEncoder encoder) {
+      UserRepository userRepo, PasswordEncoder encoder,
+      CourseDetailRepository detailRepo, StaffRepository staffRepo) {
     // user repo for ease of testing with a built-in user
     return new CommandLineRunner() {
       @Override
       public void run(String... args) throws Exception {
         userRepo.save(new User("jacob", encoder.encode("password")));
+        
+        staffRepo.save(new Staff("eg1", "Smith Johnson", "sj@cqu.edu.cn", Position.INSTRUCTOR));
+        staffRepo.save(new Staff("eg2", "Alex Banks", "ab@cqu.edu.cn", Position.CA));
+        staffRepo.save(new Staff("eg3", "Alice Jackson", "aj@cqu.edu.cn", Position.CA));
         
         repo.save(new Course("SE10001", "Freshman Seminar", Type.MF, 1.0, 16, 0, 1));
         repo.save(new Course("SE10003", "Intro to Information System", Type.MF, 2.0, 32, 0, 1));

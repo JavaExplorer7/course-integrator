@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:text="${course.id + ' Info'}">...</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/course.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <br/>
+        <h1 th:text="${course.title}">title goes here</h1>
+        <nav>
+          <ul>
+            <li><a th:href="@{/course/index(id=${course.id})}">home</a></li>
+            <li><a href="#" class="current">basics</a></li>
+            <li><a th:href="@{/course/lecture(id=${course.id})}">lectures</a></li>
+            <li><a th:href="@{/course/task(id=${course.id})}">tasks</a></li>
+            <li><a th:href="@{/course/staff(id=${course.id})}">staff</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <section class="courses">
+        <article>
+          <hgroup>
+            <h2>Class Info</h2>
+          </hgroup>
+          <p>info</p>
+        </article>
+      </section>
+ 
+      <footer>
+        All content &amp; design &copy; Course Integrator, 2019-2020.
+      </footer>
+    </div><!-- .wrapper -->
+
+  </body>
+</html>

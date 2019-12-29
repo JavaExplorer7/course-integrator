@@ -64,7 +64,7 @@
             </label>
           </div>
       
-          <input type="image" th:src="@{images/go.jpg}" class="button"/>
+          <input type="image" th:src="@{/images/go.jpg}" class="button"/>
         </form>
 
         <span id="hint" class="hint"></span>
@@ -83,7 +83,7 @@
 
           <tbody th:remove="all-but-first">
             <tr th:each="course : ${courses}">
-              <td class="cell-name"><a th:href="@{/course/details(id=${course.id})}" th:title="'View details for ' + ${course.id}" th:text="${course.id}">0</a></td>
+              <td class="cell-name"><a th:href="@{/course/index(id=${course.id})}" th:title="'View details for ' + ${course.id}" th:text="${course.id}">0</a></td>
               <td class="cell-name" th:text="${course.title}">0</td>
               <td class="cell-name-type" th:text="${course.type}">0</td>
               <td class="cell-num" th:text="${course.credit}">0</td>

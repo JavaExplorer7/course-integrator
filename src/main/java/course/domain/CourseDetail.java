@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -22,13 +23,19 @@ public class CourseDetail {
   @Id
   private final String id;
   private final String title;
+  
+  @Column(columnDefinition="TEXT")
   private final String description;
   
   @ManyToMany(targetEntity=Staff.class)
   private final List<Staff> staffs;
   
+  @Column(columnDefinition="TEXT")
   private final HashMap<String, String> info;
+  
   private final HashMap<String, Integer> grading;
-  private final HashMap<String, Date> task;
+  
+  @Column(columnDefinition="TEXT")
+  private final HashMap<String, Date> tasks;
 
 }

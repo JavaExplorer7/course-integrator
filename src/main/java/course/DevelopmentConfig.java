@@ -12,7 +12,9 @@ import course.data.StaffRepository;
 import course.data.UserRepository;
 import course.domain.Course;
 import course.domain.User;
+import course.misc.CompilerCourse;
 import course.domain.Course.Type;
+import course.domain.CourseDetail;
 import course.domain.Staff;
 import course.domain.Staff.Position;
 
@@ -33,6 +35,11 @@ public class DevelopmentConfig {
         staffRepo.save(new Staff("eg1", "Smith Johnson", "sj@cqu.edu.cn", Position.INSTRUCTOR));
         staffRepo.save(new Staff("eg2", "Alex Banks", "ab@cqu.edu.cn", Position.CA));
         staffRepo.save(new Staff("eg3", "Alice Jackson", "aj@cqu.edu.cn", Position.CA));
+        
+        detailRepo.save(new CourseDetail(CompilerCourse.ID, 
+            CompilerCourse.TITLE, CompilerCourse.DESCRIPTION, 
+            staffRepo.findByIdContaining("eg"), CompilerCourse.getInfo(), 
+            CompilerCourse.getGrading(), CompilerCourse.getTasks()));
         
         repo.save(new Course("SE10001", "Freshman Seminar", Type.MF, 1.0, 16, 0, 1));
         repo.save(new Course("SE10003", "Intro to Information System", Type.MF, 2.0, 32, 0, 1));

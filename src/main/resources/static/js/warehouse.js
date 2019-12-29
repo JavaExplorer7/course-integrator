@@ -64,7 +64,7 @@ function processSearch() {
       
       $.each(data, function(key, val) {
         newList += '<tr>' 
-        + '<td class="cell-name"><a class="ent-name" href="course/details?id=' + val.id + '" title="View details for ' + val.id + '">' + val.id + '</a></td>'
+        + '<td class="cell-name"><a class="ent-name" href="course/index?id=' + val.id + '" title="View details for ' + val.id + '">' + val.id + '</a></td>'
         + '<td class="cell-name">'       + val.title  + '</td>'
         + '<td class="cell-name-type">'  + val.type   + '</td>'
         + '<td class="cell-num">'        + val.credit + '</td>'

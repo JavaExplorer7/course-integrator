@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title th:text="${course.id + ' Details'}">...</title>
+    <title th:text="${course.id} + ': ' + ${course.title}">...</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/course.css}" />
   </head>
@@ -11,14 +11,14 @@
     <div class="wrapper">
       <header>
         <br/>
-        <h1 th:text="${course.title}">title goes here</h1>
+        <h1 th:text="${course.id + ': ' + course.title}">title goes here</h1>
         <nav>
           <ul>
             <li><a href="#" class="current">home</a></li>
             <li><a th:href="@{/course/basic(id=${course.id})}">basics</a></li>
             <li><a th:href="@{/course/lecture(id=${course.id})}">lectures</a></li>
             <li><a th:href="@{/course/task(id=${course.id})}">tasks</a></li>
-            <li><a th:href="@{/course/staff(id=${course.id})}">staff</a></li>
+            <li><a th:href="@{/course/staff(id=${course.id})}">staffs</a></li>
           </ul>
         </nav>
       </header>
@@ -39,8 +39,8 @@
         <section class="useful-links">
           <h2>Useful Links</h2>
           <a href="https://bit.ly/2ZLaRRA">Learning Videos</a>
-          <a href="#">Link II</a>
-          <a href="#">Link III</a>
+          <a href="#">Sample Final</a>
+          <a href="#">Sample Final (Answers)</a>
         </section>
       </aside>
  
@@ -48,6 +48,5 @@
         All content &amp; design &copy; Course Integrator, 2019-2020.
       </footer>
     </div><!-- .wrapper -->
-
   </body>
 </html>

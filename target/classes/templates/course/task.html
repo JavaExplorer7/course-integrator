@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Course Tasks</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/task.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <br/>
+        <h1 th:text="${course.id + ': ' + course.title}">title goes here</h1>
+        <nav>
+          <ul>
+            <li><a th:href="@{/course/index(id=${course.id})}">home</a></li>
+            <li><a th:href="@{/course/basic(id=${course.id})}">basics</a></li>
+            <li><a th:href="@{/course/lecture(id=${course.id})}">lectures</a></li>
+            <li><a href="#" class="current">tasks</a></li>
+            <li><a th:href="@{/course/staff(id=${course.id})}">staffs</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <section>
+        <h2>Course Tasks (Deadline Included)</h2>
+        <div class="row">
+          <div id="homeworkColumn" class="column">
+            <h3>Homework</h3>
+            <div class="part" 
+                  th:each="task : ${course.tasks.keySet()}" 
+                  th:if="${task.contains('Homework')}">
+              <div class="title"><a href="#" th:text="${task}">...</a></div>
+              <div class="due" th:text="${#dates.format(course.tasks.get(task), 'MMM/dd/yyyy HH:mm')}">...</div>
+            </div>
+          </div>
+          
+          <div id="projectColumn" class="column">
+            <h3>Projects</h3>
+            <div class="part" 
+                  th:each="task : ${course.tasks.keySet()}" 
+                  th:if="${task.contains('Project')}">
+              <div class="title"><a href="#" th:text="${task}">...</a></div>
+              <div class="due" th:text="${#dates.format(course.tasks.get(task), 'MMM/dd/yyyy HH:mm')}">...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <footer>
+        All content &amp; design &copy; Course Integrator, 2019-2020.
+      </footer>
+    </div><!-- .wrapper -->
+  </body>
+</html>

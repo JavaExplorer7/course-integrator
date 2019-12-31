@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Course Lectures</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/lecture.css}" />
+    <link rel="stylesheet" th:href="@{/css/table.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <br/>
+        <h1 id="top" th:text="${course.id + ': ' + course.title}">title goes here</h1>
+        <nav>
+          <ul>
+            <li><a th:href="@{/course/index(id=${course.id})}">home</a></li>
+            <li><a th:href="@{/course/basic(id=${course.id})}">basics</a></li>
+            <li><a href="#" class="current">lectures</a></li>
+            <li><a th:href="@{/course/task(id=${course.id})}">tasks</a></li>
+            <li><a th:href="@{/course/staff(id=${course.id})}">staffs</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <section>
+        <h2>Course Schedules (Reference)</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Week</div></th> 
+              <th class="sorting" data-sort="name"><div class="sortwrap">Topics</div></th>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Notes</div></th>
+              <th class="sorting" data-sort="number"><div class="sortwrap">Slides</div></th>
+            </tr>
+          </thead>
+
+          <tbody th:remove="all-but-first">
+            <tr th:each="week : ${#numbers.sequence(1,14)}">
+              <td class="cell-num" th:text="${week}">0</td>
+              <td class="cell-name" th:text="${'topic ' + week}">0</td>
+              <td class="cell-num"><a href="#" th:text="${week}">0</a></td>
+              <td class="cell-num"><a href="#" th:text="${week}">0</a></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <a href="#top" class="navi-top">^^</a>
+      </section>
+ 
+      <footer>
+        All content &amp; design &copy; Course Integrator, 2019-2020.
+      </footer>
+    </div><!-- .wrapper -->
+    
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/sort-table.js}"></script>
+  </body>
+</html>

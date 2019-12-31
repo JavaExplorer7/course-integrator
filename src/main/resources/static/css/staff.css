@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import url("course.css");
+
+div.part {
+  padding-top:1rem;
+  text-indent:1rem;}
+  
+span, td a {
+  display:block;
+  margin:0 auto;
+  border:0;
+  padding:0;
+  text-align:center;
+  font-size:1rem;
+  font-weight:bold;}
+  
+td a.email {
+  font-style:italic;}

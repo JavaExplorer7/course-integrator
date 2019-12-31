@@ -4,9 +4,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CompilerCourse {
   
@@ -18,7 +15,7 @@ public class CompilerCourse {
   
   public static HashMap<String, String> getInfo() {
     HashMap<String, String> info = new HashMap<>();
-    info.put("Books", "Compilers: Principles, Techniques & Tools, by Aho, Lam, Sethi and Ullman, Second edition. ISBN 0-321-48681-1");
+    info.put("Books", "Compilers: Principles, Techniques & Tools, by Aho, Lam, Sethi and Ullman, Second edition. ISBN 0-321-48681-1. First edition will also be fine.");
     info.put("Tasks", "The class includes three homework and four programming projects based on the lab book.");
     info.put("Exams", "The class will have a final examination during exams week and it is opened-book.");
     info.put("Others","Anything worth mentioning will be pushished here.");

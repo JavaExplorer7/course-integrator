@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import url("course.css");
+
+div.part {
+  padding-top:1rem;
+  text-indent:1rem;}
+
+div.title a {
+  color:blue;
+  text-decoration:underline;}
+
+.row {
+  display:flex;
+  margin:2rem 0 2rem 2rem;}
+/* Create two equal columns that sits next to each other */
+.column {
+  flex:50%;
+  padding:.25rem;}

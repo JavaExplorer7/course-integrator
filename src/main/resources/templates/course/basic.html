@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title th:text="${course.id + ' Info'}">...</title>
+    <title>Course Basics</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" th:href="@{/css/course.css}" />
   </head>
@@ -11,14 +11,14 @@
     <div class="wrapper">
       <header>
         <br/>
-        <h1 th:text="${course.title}">title goes here</h1>
+        <h1 th:text="${course.id + ': ' + course.title}">title goes here</h1>
         <nav>
           <ul>
             <li><a th:href="@{/course/index(id=${course.id})}">home</a></li>
             <li><a href="#" class="current">basics</a></li>
             <li><a th:href="@{/course/lecture(id=${course.id})}">lectures</a></li>
             <li><a th:href="@{/course/task(id=${course.id})}">tasks</a></li>
-            <li><a th:href="@{/course/staff(id=${course.id})}">staff</a></li>
+            <li><a th:href="@{/course/staff(id=${course.id})}">staffs</a></li>
           </ul>
         </nav>
       </header>
@@ -26,16 +26,38 @@
       <section class="courses">
         <article>
           <hgroup>
-            <h2>Class Info</h2>
+            <h2>Grading Policy</h2>
           </hgroup>
-          <p>info</p>
+          <table>
+            <tr th:each="section : ${course.grading.keySet()}" >
+              <td th:text="${section}">...</td>
+              <td th:text="${course.grading.get(section) + ' %'}">..%</td>
+            </tr>
+          </table>
+        </article>
+        
+        <article th:each="title : ${course.info.keySet()}">
+          <hgroup>
+            <h2 th:text="${title}">title</h2>
+          </hgroup>
+          <p th:text="${course.info.get(title)}">content</p>
         </article>
       </section>
+      
+      <aside>
+        <section>
+          <figure class="books">
+            <img th:src="@{/images/courses/} + ${course.id.toLowerCase() + '-book-1.jpg'}" />
+          </figure>
+          <figure class="books">
+            <img th:src="@{/images/courses/} + ${course.id.toLowerCase() + '-book-2.jpg'}" />
+          </figure>
+        </section>
+      </aside>
  
       <footer>
         All content &amp; design &copy; Course Integrator, 2019-2020.
       </footer>
     </div><!-- .wrapper -->
-
   </body>
 </html>

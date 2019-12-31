@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-  <p>This Course doesn't have any detail.</p>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Course Error</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/course.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <br/>
+        <h1>This course doesn't have any detail.</h1>
+        <nav>
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">basics</a></li>
+            <li><a href="#">lectures</a></li>
+            <li><a href="#">tasks</a></li>
+            <li><a href="#">staffs</a></li>
+          </ul>
+        </nav>
+      </header>
+      <footer>
+        All content &amp; design &copy; Course Integrator, 2019-2020.
+      </footer>
+    </div><!-- .wrapper -->
+  </body>
 </html>

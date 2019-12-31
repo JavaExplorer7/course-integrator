@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Course Staffs</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/staff.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <br/>
+        <h1 th:text="${course.id + ': ' + course.title}">title goes here</h1>
+        <nav>
+          <ul>
+            <li><a th:href="@{/course/index(id=${course.id})}">home</a></li>
+            <li><a th:href="@{/course/basic(id=${course.id})}">basics</a></li>
+            <li><a th:href="@{/course/lecture(id=${course.id})}">lectures</a></li>
+            <li><a th:href="@{/course/task(id=${course.id})}">tasks</a></li>
+            <li><a href="#" class="current">staffs</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <section>
+        <h2>Course Staffs</h2>
+        <div class="part">
+          <h3>Instructors</h3>
+          <table>
+            <tr>
+              <td th:each="staff : ${course.staffs}" th:if="${staff.isInstructor()}">
+                <table>
+                  <tr><td><figure class="profile"><img th:src="@{/images/staffs/} + ${staff.id + '.png'}" /></figure></td></tr>
+                  <tr><td><span class="name" th:text="${staff.name}">...</span></td></tr>
+                  <tr><td><a class="email" th:href="@{'mailto:'} + ${staff.email}" th:text="${staff.email}">...</a></td></tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="part">
+          <h3>Course Assistants</h3>
+          <table>
+            <tr>
+              <td th:each="staff : ${course.staffs}" th:if="${!staff.isInstructor()}">
+                <table>
+                  <tr><td><figure class="profile"><img th:src="@{/images/staffs/} + ${staff.id + '.png'}" /></figure></td></tr>
+                  <tr><td><span class="name" th:text="${staff.name}">...</span></td></tr>
+                  <tr><td><a class="email" th:href="@{'mailto:'} + ${staff.email}" th:text="${staff.email}">...</a></td></tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+     
+      <footer>
+        All content &amp; design &copy; Course Integrator, 2019-2020.
+      </footer>
+    </div><!-- .wrapper -->
+  </body>
+</html>

@@ -24,4 +24,8 @@ public class Staff {
     CA, INSTRUCTOR
   }
   
+  public boolean isInstructor() {
+    return this.position == Position.INSTRUCTOR;
+  }
+  
 }

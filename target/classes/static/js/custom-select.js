@@ -1,3 +1,7 @@
+/**
+ * Author: Jacob Wong
+ * Date: 2019/12/10
+ */
 
 $(function() {
 	customSelection(true);

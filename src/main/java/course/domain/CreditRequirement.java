@@ -25,13 +25,13 @@ public class CreditRequirement {
   @OneToOne
   private User user;
   
-  private HashMap<Type, Double> requirement;
+  private HashMap<Type, Double> requirements;
   
   @ManyToMany(targetEntity=Course.class)
   private Set<Course> courses;
   
   public void addRequirement(Type type, double credit) {
-    this.requirement.put(type, new Double(credit));
+    this.requirements.put(type, new Double(credit));
   }
   
   public void addFinishedCourse(Course finished) {
